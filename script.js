@@ -57,40 +57,43 @@
 		${error.message}`)
 		})
 	}
-	
-	    function displayResultsFood(data) {
-			//console.log(data.hints, 'shon here');
-	        for (let i = 0; i < data.hints.length; i++){
-	         $('.displayFood').append(`
-				<h2>${data.hints[i].food.label}</h2>
 
-				<table class="food-tb" style="width:100%;">
-					<tr>
-						<td width="80">Energy</td>
-						<td width="80">Protein</td>
-						<td width="80">Fat</td>	
-						<td width="80">Carbs</td>
-					<tr>
-					<tr>
-						<td>${data.hints[i].food.nutrients.ENERC_KCAL} kcal</td>
-						<td>${data.hints[i].food.nutrients.PROCNT} g</td>
-						<td>${data.hints[i].food.nutrients.FAT} g</td>
-						<td>${data.hints[i].food.nutrients.CHOCDF} g</td>
-					</tr>
-				</table>
-	        `
-			)}
-		}
+	function displayResultsRecipe(responseJson) {
+		document.getElementsByClassName(".displayRecipe").innerHTML = "Paragraph changed!";
+		for (let j = 0; j < responseJson.hits.length; j++){
+			$('.displayRecipe').append(`
+				<h2>${responseJson.hits[j].recipe.label}</h2>
+				<img src="${responseJson.hits[j].recipe.image}" ><br>
+				<a href="${responseJson.hits[j].recipe.url}">${responseJson.hits[j].recipe.source}</a>
+			`
+		)}
+	}
+	
+	function displayResultsFood(data) {
+		//console.log(data.hints, 'shon here');
+		for (let i = 0; i < data.hints.length; i++){
+			$('.displayFood').append(`
+			<h2>${data.hints[i].food.label}</h2>
+
+			<table class="food-tb" style="width:100%;">
+				<tr>
+					<td width="80">Energy</td>
+					<td width="80">Protein</td>
+					<td width="80">Fat</td>	
+					<td width="80">Carbs</td>
+				<tr>
+				<tr>
+					<td>${data.hints[i].food.nutrients.ENERC_KCAL} kcal</td>
+					<td>${data.hints[i].food.nutrients.PROCNT} g</td>
+					<td>${data.hints[i].food.nutrients.FAT} g</td>
+					<td>${data.hints[i].food.nutrients.CHOCDF} g</td>
+				</tr>
+			</table>
+		`
+		)}
+	}
 		
-		// function displayResultsRecipe(responseJson) {
-		// 	for (let j = 0; j < responseJson.hits.length; j++){
-		// 		$('.displayRecipe').append(`
-		// 			<h2>${responseJson.hits[j].recipe.label}</h2>
-		// 			<img src="${responseJson.hits[j].recipe.image}" ><br>
-		// 			<a href="${responseJson.hits[j].recipe.url}">${responseJson.hits[i].recipe.source}</a>
-		// 		`
-		// 	)}
-		// }
+		
 	
 	    function watchForm() {
 	        $('#getDisplay').click(event => {
@@ -101,8 +104,8 @@
 	            //let ingredientThree = $('#js-search-term-three').val();
 	        // let maxResults = $('#js-max-results').val();
 	        //console.log(getRecipe(ingredient));
-			//displayResultsRecipe(ingredient);
-			displayResultsFood(ingredient);
+			getRecipe(ingredient);
+			getFood(ingredient);
 				 $('.displayRecipe').empty();
 				 $('.displayFood').empty();
 	             
