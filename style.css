@@ -24,4 +24,30 @@
       color: red;
   }
   
+.food-list {
+  list-style-type:none;
+  overflow-x:hidden;
+  white-space:nowrap; 
+  height: 1em;
+  width: 100%;
+}
+.food-list li {
+  display:inline;
+}
 
+.food-tb tr td {
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: dotted;
+  border-left-style: none;
+  border-bottom-color: #FFF;
+ }
+.food-tb {
+  font-weight: bold;
+  background-color: #C9C9AD;
+  color: #000;
+}

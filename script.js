@@ -1,4 +1,7 @@
 'use strict'
+
+
+	
 	
 	    let appKeyF = '5e612794d4dd156cef49d38e96d29a10	';
 		let appIdF = 'b1dec2c8';
@@ -15,7 +18,7 @@
 	            return queryItems.join('&');
 		}
 		
-	// fetch first api call for recipes
+	//fetch first api call for recipes
 	    function getRecipe(query) {
 	        const params = {
 	            q: query,
@@ -28,7 +31,7 @@
 	
 	    fetch(urlRecipe)
 	    .then(response => response.json())
-	    .then(responseJson => displayResults(responseJson))
+	    .then(responseJson => displayResultsRecipe(responseJson))
 	    .catch(error => {
 	        $('.displayError').html(`Something went wrong. Try again later:
 	        ${error.message}`)
@@ -48,36 +51,46 @@
 
 	fetch(url)
 	.then(response => response.json())
-	.then(resJson => displayResults(resJson))
+	.then(data => displayResultsFood(data))
 	.catch(error => {
 		$('.displayError').html(`Something went wrong. Try again later:
 		${error.message}`)
-	})
-	console.log(resJson, 'beth');
+		})
 	}
 	
-	    function displayResults(responseJson, resJson) {
-		//$('#results-list').empty();
-		console.log(resJson, 'beth');
-	        for (let i = 0; i < responseJson.hits.length; i++){
-			 //console.log(responseJson.hits[i].recipe);
-			 console.log(resJson);
-	         $('.displayRecipeFinder').append(`
-	            <h2>${responseJson.hits[i].recipe.label}</h2>
-	            <img src="${responseJson.hits[i].recipe.image}" ><br>
-	            <a href="${responseJson.hits[i].recipe.url}">${responseJson.hits[i].recipe.source}</a>
+	    function displayResultsFood(data) {
+			//console.log(data.hints, 'shon here');
+	        for (let i = 0; i < data.hints.length; i++){
+	         $('.displayFood').append(`
+				<h2>${data.hints[i].food.label}</h2>
+
+				<table class="food-tb" style="width:100%;">
+					<tr>
+						<td width="80">Energy</td>
+						<td width="80">Protein</td>
+						<td width="80">Fat</td>	
+						<td width="80">Carbs</td>
+					<tr>
+					<tr>
+						<td>${data.hints[i].food.nutrients.ENERC_KCAL} kcal</td>
+						<td>${data.hints[i].food.nutrients.PROCNT} g</td>
+						<td>${data.hints[i].food.nutrients.FAT} g</td>
+						<td>${data.hints[i].food.nutrients.CHOCDF} g</td>
+					</tr>
+				</table>
 	        `
-			)
-			for (let j = 0; j < resJson.length; j++){
-				console.log(resJson[i]);
-				$('.displayRecipeFinder').append(`
-				   <h2>${resJson.food[i].label}</h2>
-			   `
-			   )
-			}
-	    }
-	//     $('#results').removeClass('hidden');
-	 }
+			)}
+		}
+		
+		// function displayResultsRecipe(responseJson) {
+		// 	for (let j = 0; j < responseJson.hits.length; j++){
+		// 		$('.displayRecipe').append(`
+		// 			<h2>${responseJson.hits[j].recipe.label}</h2>
+		// 			<img src="${responseJson.hits[j].recipe.image}" ><br>
+		// 			<a href="${responseJson.hits[j].recipe.url}">${responseJson.hits[i].recipe.source}</a>
+		// 		`
+		// 	)}
+		// }
 	
 	    function watchForm() {
 	        $('#getDisplay').click(event => {
@@ -88,11 +101,39 @@
 	            //let ingredientThree = $('#js-search-term-three').val();
 	        // let maxResults = $('#js-max-results').val();
 	        //console.log(getRecipe(ingredient));
-	             getRecipe(ingredient);
-	             $('.displayRecipeFinder').empty();
+			//displayResultsRecipe(ingredient);
+			displayResultsFood(ingredient);
+				 $('.displayRecipe').empty();
+				 $('.displayFood').empty();
 	             
 	    });
 	}
 	$(watchForm);
 
+
+
+
+//let log = console.log
+
+// let fetchRecipeFinder = fetch('https://api.edamam.com/search');
+// let fetchFoodFinder = fetch('https://api.edamam.com/api/food-database/parser');
+
+// Promise.all ([recipeFinder, foodFinder])
+// 	.then (values => {
+// 		values.forEach(value=> {
+// 			process(value.json());
+// 		})	
+// 	})
+// 	.catch(err=> {
+// 	})	
+
+// 	let process = (prom) => {
+// 		prom.then(data => {
+// 			let p = document.createElement('p');
+// 			p.textContent=value.join(",");
+// 			document.getElementById('output').append(p);
+// 		})
+// 	}
+
+	
 
