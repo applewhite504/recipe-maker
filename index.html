@@ -3,30 +3,31 @@
 	<head>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>Recipe App</title>
+	    <title>What to eat?</title>
 	    <link rel="stylesheet" href="style.css">
 	 
-	    
 	</head>
 	<body>
-	    <h1>Recipe Search</h1>
-	    <h3>Don't know what to make for breakfast? What should you eat for lunch? Do you have a recipe for dinner?</h3>
-	    <p>Get what you need here. Enter the ingredients you have or wish to use and recipes will be shown with a link to the directions.</p>
+		<h1>What To Eat?</h1>
+		<h1>Recipe and Nutrition Finder</h1>
+		<h3>Don't know what to make for breakfast? What should you eat for lunch? Do you have a recipe for dinner?</h3>
+		<h3>How about which foods may be more nutritious?</h3>
+	    <p>Find amazing recipes from the best resources on the web along with nutritional information to help you make the best choices for what to eat! </p>
 	    
 	    <form>
-	        <label for="text">Enter ingredients you wish to use here:</label>
-	        <input type="text" id="js-search-term" placeholder="chicken" required>
-	        
-	        <!-- <label for="max-results">Maximum returned results</label>
-	        <input type="number" name="max-results" id="js-max-results" value="5"> -->
+	        <label for="text">Start by entering your main ingredient here:</label><br><br>
+	        <input type="text" id="js-search-term" placeholder="chicken" required><br><br>
 	        <input type="submit" id="getDisplay" value="Search">
 	    </form>
 
 	    <p class="displayError" style="color: red;font-size: xx-large;"></p>
 	
-		
+
 		<section class="displayRecipe"></section>
-	    <section class="displayFood"></section>
+
+
+		<section class="displayFood"></section>	
+
 		
 		<!--<div id="output"></div>-->
 	

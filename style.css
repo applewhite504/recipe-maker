@@ -1,10 +1,21 @@
 * {
     box-sizing: border-box;
   }
+
+  h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    
+  }
   
   body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    background-color: rgb(255, 81, 0)
+  }
+
+  
+  p {
+    font-size: 22px;
   }
   
   button, input[type="text"] {
@@ -16,7 +27,7 @@
   }
   
   .section {
-    max-width: 600px;
+    /*max-width: 600px;*/
     margin: 0 auto;
   }
   
@@ -42,12 +53,29 @@
   border-left-width: 0px;
   border-top-style: none;
   border-right-style: none;
-  border-bottom-style: dotted;
+  border-bottom-style: solid;
   border-left-style: none;
   border-bottom-color: #FFF;
  }
+
+
 .food-tb {
   font-weight: bold;
-  background-color: #C9C9AD;
-  color: #000;
+  background-color: black;
+  color: white;
+}
+
+
+@media screen and (min-width: 520px) {
+.displayRecipe {
+  float: left;
+  margin-left: 250px;
+  max-width: 800px;
+}
+
+.displayFood {
+  float: right;
+  margin-right: 100px;
+  
+}
 }

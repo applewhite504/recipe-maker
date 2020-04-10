@@ -1,8 +1,5 @@
 'use strict'
 
-
-	
-	
 	    let appKeyF = '5e612794d4dd156cef49d38e96d29a10	';
 		let appIdF = 'b1dec2c8';
 		let appKey = '56dc91c65105b03d1c0b7071bb00e762'
@@ -81,7 +78,7 @@
 					<td width="80">Protein</td>
 					<td width="80">Fat</td>	
 					<td width="80">Carbs</td>
-				<tr>
+				</tr>
 				<tr>
 					<td>${data.hints[i].food.nutrients.ENERC_KCAL} kcal</td>
 					<td>${data.hints[i].food.nutrients.PROCNT} g</td>
@@ -100,10 +97,7 @@
 	            event.preventDefault();
 	        
 	            let ingredient = $('#js-search-term').val();
-	            //let ingredientTwo = $('#js-search-term-two').val();
-	            //let ingredientThree = $('#js-search-term-three').val();
-	        // let maxResults = $('#js-max-results').val();
-	        //console.log(getRecipe(ingredient));
+	            
 			getRecipe(ingredient);
 			getFood(ingredient);
 				 $('.displayRecipe').empty();
@@ -115,28 +109,4 @@
 
 
 
-
-//let log = console.log
-
-// let fetchRecipeFinder = fetch('https://api.edamam.com/search');
-// let fetchFoodFinder = fetch('https://api.edamam.com/api/food-database/parser');
-
-// Promise.all ([recipeFinder, foodFinder])
-// 	.then (values => {
-// 		values.forEach(value=> {
-// 			process(value.json());
-// 		})	
-// 	})
-// 	.catch(err=> {
-// 	})	
-
-// 	let process = (prom) => {
-// 		prom.then(data => {
-// 			let p = document.createElement('p');
-// 			p.textContent=value.join(",");
-// 			document.getElementById('output').append(p);
-// 		})
-// 	}
-
-	
 
