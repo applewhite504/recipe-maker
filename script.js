@@ -67,7 +67,6 @@
 	}
 	
 	function displayResultsFood(data) {
-		//console.log(data.hints, 'shon here');
 		for (let i = 0; i < data.hints.length; i++){
 			$('.displayFood').append(`
 			<h2>${data.hints[i].food.label}</h2>
@@ -90,6 +89,7 @@
 		)}
 	}
 		
+	
 		
 	
 	    function watchForm() {
