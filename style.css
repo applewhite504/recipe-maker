@@ -2,12 +2,28 @@
     box-sizing: border-box;
   }
 
+  .ml15 {
+    font-weight: 800;
+    font-size: 3.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .ml15 .word {
+    display: inline-block;
+    line-height: 1em;
+  }
+
   #header {
     text-align: center;
+    color: black;
   }
 
   h1 {
     font-family: 'IBM Plex Serif', serif;
+    text-decoration: underline;
   }
 
   h2 {
@@ -22,6 +38,7 @@
   form {
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
+    color: black;
   }
 
 
@@ -31,13 +48,13 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;
-    margin: 0;
+    margin: auto;
     text-align: center;
+    color: #2F4858;
     
     
   }
 
-  
   p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 22px;
@@ -51,10 +68,10 @@
     cursor: pointer;
   }
   
-  .section {
-    /*max-width: 600px;*/
+  /* .section {
+    
     margin: 0 auto;
-  }
+  } */
   
   .error-message {
       color: red;
@@ -75,7 +92,8 @@
 
 .food-tb tr td {
   text-align: center;
-  border-top-width: 0px;
+
+  /* border-top-width: 0px;
   border-right-width: 0px;
   border-bottom-width: 1px;
   border-left-width: 0px;
@@ -83,14 +101,30 @@
   border-right-style: none;
   border-bottom-style: solid;
   border-left-style: none;
-  border-bottom-color: #FFF;
+  border-bottom-color: #FFF; */
  }
+
+ tr:nth-child(even){background-color: #CBF7FF;}
+
+ tr:hover {
+    background-color: #f2f2f2;
+  }
+ /* tr:hover {background-color:#d5dcdd;} */
 
 
 .food-tb {
+  border-radius: 5px;
   text-align: center;
   font-weight: bold;
-  background-color: bisque;
-  color: white;
+  background-color:#ede9d0;
+  /* opacity: 0.7; */
+ 
 }
+
+.displayFood {
+  width: 55%;
+  margin: auto;
+}
+
+
 

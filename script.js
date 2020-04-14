@@ -1,5 +1,6 @@
 'use strict'
 
+
 	    let appKeyF = '5e612794d4dd156cef49d38e96d29a10	';
 		let appIdF = 'b1dec2c8';
 		let appKey = '56dc91c65105b03d1c0b7071bb00e762'
@@ -87,15 +88,11 @@
 			</table>
 		`
 		)}
-	}
-		
-	
-		
+	}	
 	
 	    function watchForm() {
 	        $('#getDisplay').click(event => {
 	            event.preventDefault();
-	        
 	            let ingredient = $('#js-search-term').val();
 	            
 			getRecipe(ingredient);
@@ -107,6 +104,22 @@
 	}
 	$(watchForm);
 
+	
+	anime.timeline({loop: true})
+	.add({
+	  targets: '.ml15 .word',
+	  scale: [14,1],
+	  opacity: [0,1],
+	  easing: "easeOutCirc",
+	  duration: 800,
+	  delay: (el, i) => 800 * i
+	}).add({
+	  targets: '.ml15',
+	  opacity: 0,
+	  duration: 1000,
+	  easing: "easeOutExpo",
+	  delay: 1000
+	});
 
 
 
