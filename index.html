@@ -27,19 +27,38 @@
 	</div>
 
 	<body>
-	    <form>
-	        <label for="text">Start by entering your main ingredient here:</label><br><br>
-	        <input type="text" id="js-search-term" placeholder="chicken" required><br><br>
-	        <input type="submit" id="getDisplay" value="Search">
-	    </form>
+		<main>
 
-	    <p class="displayError" style="color: red;font-size: xx-large;"></p>
+			<form>
+				<label for="text">Start by entering your main ingredient here:</label><br><br>
+				<span>* Required</span>
+				<input type="text" 
+				id="js-search-term" 
+				placeholder="food item"
+				class="search"
+				required="required"/>
+				<input type="submit" 
+				id="getDisplay" 
+				value="Submit">
+			</form>
+		
+
+			<!-- <form>
+				<label for="text">Start by entering your main ingredient here:</label><br><br>
+				<input type="text" id="js-search-term" placeholder="chicken" required><br><br>
+				<input type="submit" id="getDisplay" value="Search">
+			</form> -->
+			
+			<!-- <p class="displayError" style="color: red;font-size: xx-large;"></p> -->
+			
+			<div class="container">
+				<section class="displayRecipe"></section>
+			
+			
+				<section class="displayFood"></section>	
+			</div>
+		</main>
 	
-
-		<section class="displayRecipe"></section>
-
-
-		<section class="displayFood"></section>	
 
 		
 		<!--<div id="output"></div>-->
@@ -48,7 +67,9 @@
 	    <!-- <section id="results">
 	        <h2> Here is your recipe!</h2>
 	        <ul id="results-list"></ul>
-	    </section> -->
+		</section> -->
+		
+		<button id="myBtn"><a href="#top" style="color: white">Top</a></button>
 	</body>
 	
 
