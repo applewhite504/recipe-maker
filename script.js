@@ -66,29 +66,7 @@
 			`
 		)}
 	}
-
-
-	// function displayResultsFood(data) {
-	// 	for (let i = 0; i < data.hints.length; i++){
-	// 		$('.displayFood').append(`
-	// 		<h2>${data.hints[i].food.label}</h2>
-	// 		<table class="food-tb" style="width:100%;">
-	// 			<tr>
-	// 				<td width="80">Energy</td>
-	// 				<td width="80">Protein</td>
-	// 				<td width="80">Fat</td>	
-	// 				<td width="80">Carbs</td>
-	// 			</tr>
-	// 			<tr>
-	// 				<td>${data.hints[i].food.nutrients.ENERC_KCAL} kcal</td>
-	// 				<td>${data.hints[i].food.nutrients.PROCNT} g</td>
-	// 				<td>${data.hints[i].food.nutrients.FAT} g</td>
-	// 				<td>${data.hints[i].food.nutrients.CHOCDF} g</td>
-	// 			</tr>
-	// 		</table>
-	// 	`
-	// 	)}
-	// }	
+	
 	
 	function displayResultsFood(data) {
 		for (let i = 0; i < data.hints.length; i++){
@@ -127,20 +105,31 @@
 	}	
 	
 	function watchForm() {
-		$("#getDisplay").click(event => {
-			// $('#js-search-term').valid();
+		$("#getDisplay").on('submit', function(event) {
 			event.preventDefault();
 			let ingredient = $('#js-search-term').val();
-			
-			getRecipe(ingredient);
-			getFood(ingredient);
-			
-			$('.displayRecipe').empty();
-			$('.displayFood').empty();
-		});
-		
-	}
+	
+			// Send the data using post
+			let posting = $.post(getRecipe(ingredient));
+			// Put the results in a div
+			posting.done(function( data ) {
+				console.log(data);
+				$('.displayRecipe').empty();
+ 
+			$( "#result" ).empty().append( content );
+			});
+			// function(ingredient){
+            // 	getRecipe(ingredient);
+            // 	getFood(ingredient);
+            // 	$('.displayRecipe').empty();
+            // 	$('.displayFood').empty();
+			// };
+        });
+    }
 	$(watchForm);
+	
+// 	
+  
 
 
 // function InvalidMsg(textbox) {
