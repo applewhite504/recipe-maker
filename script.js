@@ -16,13 +16,12 @@
 		}
 		
 	//fetch first api call for recipes
-	    function getRecipe(query) {
-	        const params = {
-	            q: query,
-	            app_id: appId,
-	            app_key: appKey,
+	function getRecipe(query) {
+		const params = {
+			q: query,
+			app_id: appId,
+			app_key: appKey,
 		}
-		
 		
 	    let queryString = formatQueryParams(params);
 	    let urlRecipe = recipeFinder + '?' + queryString;
@@ -95,9 +94,9 @@
 				</tr>
 				<tr>
 					<td>${k} kcal</td>
-					<td>${p} procnt</td>
-					<td>${f} fat</td>
-					<td>${c} chocdf</td>
+					<td>${p} Protein</td>
+					<td>${f} Fat</td>
+					<td>${c} Carbs</td>
 				</tr>
 			</table>
 		`
@@ -105,65 +104,23 @@
 	}	
 	
 	function watchForm() {
-		$("#getDisplay").on('submit', function(event) {
+		$("#getDisplay").on('click', function(event) {
 			event.preventDefault();
+
 			let ingredient = $('#js-search-term').val();
-	
-			// Send the data using post
-			let posting = $.post(getRecipe(ingredient));
-			// Put the results in a div
-			posting.done(function( data ) {
-				console.log(data);
+			let noInput = !ingredient;
+			if(noInput){
+				alert('Please enter a food item.')
+			} else {
+				getRecipe(ingredient);
+				getFood(ingredient);
 				$('.displayRecipe').empty();
- 
-			$( "#result" ).empty().append( content );
-			});
-			// function(ingredient){
-            // 	getRecipe(ingredient);
-            // 	getFood(ingredient);
-            // 	$('.displayRecipe').empty();
-            // 	$('.displayFood').empty();
-			// };
+				$('.displayFood').empty();
+			} 
         });
     }
 	$(watchForm);
-	
-// 	
-  
 
-
-// function InvalidMsg(textbox) {
-//     if (textbox.value === '') {
-// 		(textbox.setCustomValidity);
-//     } else if (textbox.validity.typeMismatch){
-//         textbox.setCustomValidity('please submit a request');
-//     } else {
-//        textbox.setCustomValidity('');
-//     }
-
-// 	 return false;
-// 	}
-
-
-
-// function checkAnswersValid(){
-// 	let answerIndex = $('input[name=answer]:checked').val()
-// 	let answerNotSelected = !answerIndex
-
-// 	if(answerNotSelected) {
-// 		alert('You must select an answer, now!!')
-// 	} else {
-// 		let answer =
-// 		STORE[currentQuestionIndex].answers[
-// 			Number($('input[name=answer]:checked').val())
-// 		]
-// 		updateForm({answer, answerIndex})
-
-		
-// 	}
-// }
-
-	
 	anime.timeline({loop: true})
 	.add({
 	  targets: '.ml15 .word',
@@ -179,6 +136,5 @@
 	  easing: "easeOutExpo",
 	  delay: 6000
 	});
-
 
 
